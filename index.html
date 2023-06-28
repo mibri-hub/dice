@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+
+        .hide {
+         display: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #dices i {
+            margin: 4px;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            border-radius: 20%;
+        }
+
+        button:hover {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    
+    
+    <div class="container">
+        <button id="play" onclick="gurul(this)">Guríts</button>
+        <button class="hide" id="newGame" onclick="init()">Új játék</button>
+        <div id="dice"></div>
+        <p></p><hr>
+        <div id="dices"></div>
+    </div>
+    
+    
+    <script>
+        const arr = ['one', 'two', 'three', 'four', 'five', 'six']
+        const diceIkon = '<i class="fa-solid fa-10x"></i>'
+        let total = 0;
+        let dices = [];
+
+        function gurul(domObj) {
+            ++total;
+            if (total == 6) {
+                console.log(domObj);
+                domObj.disabled = true;
+                dices.forEach((nr) => {
+                    const item = `<i class="fa-solid fa-dice-${nr} fa-10x"></i>`;
+                    document.getElementById('dices').innerHTML += item;
+                });
+                document.getElementById('newGame').classList.toggle('hide');
+                return
+            }
+            const ranNr = Math.floor(Math.random() * 6) + 1
+            console.log(ranNr);
+            dices.push(arr[ranNr - 1]);
+            console.log(dices);
+            document.querySelector('#dice').innerHTML = diceIkon
+            const diceClass = 'fa-dice-' + arr[ranNr - 1]
+            document.querySelector('i').classList.add(diceClass)
+            document.querySelector('p').innerHTML = `Ez a dobás a ${total}. volt.`;
+            
+        }
+
+        function init() {
+            total = 0;
+            dices = [];
+            document.querySelector('p').innerHTML = '';
+            document.getElementById('dices').innerHTML = '';
+            document.getElementById('dice').innerHTML = '';
+            document.getElementById('play').disabled = false;
+            document.getElementById('newGame').classList.toggle('hide');
+        }
+    </script>
+
+</body>
+
+</html>
