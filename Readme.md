@@ -6,10 +6,12 @@
     > git status
 -  Előkészítjük a commitolásra, felteszük a színpadra (Stage), indexelés történik:
     > git add . (a 'pont' minden állományra vonatozik)
-    
+
     > git status
 - Commit (az új verzió létre hozása)
     > git commit -m "firstCommit" (Helyi REPO inicializálása)
+
+    > git status
 - Távoli REPO létrehozása(a Github oldalán)
 - Összekapcsoljuk a távoli REPO-t a helyivel:
     > git remote add origin https://token@github.com/mibri-hub/TestRepo03.git
