@@ -25,5 +25,5 @@
 - A publikálandü file neve index.html
 - Settings > Pages > Branch non-ból kiválastjuk a master-t > Save
 - Action-ben láthatjuk a publikálási folyaamatot
-- Minden commit után automatikusan újra publikálodik az oldal
+- Minden commit után automatikusan újra publikálódik (deploy) az oldal
 
