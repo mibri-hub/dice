@@ -58,12 +58,13 @@
             ++total;
             if (total == 6) {
                 console.log(domObj);
-                domObj.disabled = true;
+                //domObj.disabled = true;
                 dices.forEach((nr) => {
                     const item = `<i class="fa-solid fa-dice-${nr} fa-10x"></i>`;
                     document.getElementById('dices').innerHTML += item;
                 });
                 document.getElementById('newGame').classList.toggle('hide');
+                document.getElementById('play').classList.toggle('hide');
                 return
             }
             const ranNr = Math.floor(Math.random() * 6) + 1
@@ -83,8 +84,9 @@
             document.querySelector('p').innerHTML = '';
             document.getElementById('dices').innerHTML = '';
             document.getElementById('dice').innerHTML = '';
-            document.getElementById('play').disabled = false;
+            //document.getElementById('play').disabled = false;
             document.getElementById('newGame').classList.toggle('hide');
+            document.getElementById('play').classList.toggle('hide');
         }
     </script>
 
